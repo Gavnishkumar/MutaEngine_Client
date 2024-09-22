@@ -8,16 +8,10 @@ import TransactionsTable from './TransactionsTable';
 const Dashboard = ({onLogout }) => {
 const { user,setUser } = UserState();
   const navigate = useNavigate();
-  useEffect(() => {
-    const userInfo= JSON.parse(localStorage.getItem('userInfo'));
-    if (!userInfo) {
-      alert('Please login to access dashboard');
-      navigate('/login');
-    }
-  }, []);
+ 
 
   if (!user) {
-    return <div>Loading...</div>;
+    return <div>Please login to access dashboard</div>;
   }
 
   return (
